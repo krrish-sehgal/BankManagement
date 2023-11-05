@@ -6,6 +6,7 @@ struct Employee{
     char citizenshipStatus[50];     // Citizenship status
     char governmentID[50];         //Adhar
     char employee_id [50];
+    int a;
 };
 
 struct history{
