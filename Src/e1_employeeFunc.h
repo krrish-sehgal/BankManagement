@@ -1,79 +1,89 @@
+#pragma once
 #include <stdio.h>
+#include "c1_CustomerFunc.h"
+// #include "../CustomerStructs/s1_Customer.h"
+#include "../subCustomerFuncs/c3_displayAccInfo.h"
+#include "../subEmployeeFuncs/e1_updateCustAcc.h"
 
 
-void EmployeeFunc(struct Customer* custArray) {
+void features(struct Customer* customer){
     int choice;
-    int accountNumber, accountIdx;
+    do{
+    printf("Features\n");
+    printf("1. Member Account Details\n");
+    printf("2. update info\n");
+    printf("3. block cards\n");
+    printf("4. remove customer\n");
+    printf("5. change account Typer\n");
+    printf("6. Transaction history\n");
+    printf("7. Update Transaction history\n");
+    printf("8. exit\n");
+
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch(choice){
+        case 1:
+            updateCustAccInfo(customer);          //use subfunction of custiomer(fiel c3)
+            break;
+        // case 2:
+        //     custUpdate(&customer);
+        //     break;
+        // case 3:
+        //     BlockCards(&customer);
+        //      break;
+        // case 4:
+        //     removeAccount(&customer);
+        //     break;
+        // case 5:
+        //     changeAccType(&customer);
+        //     break;
+        // case 6:
+        //     changeAccType(&customer);
+        //     break;
+        // case 7:
+        //     transactionHistory(&customer);                  //use subfunction of custer (file c6)
+        //     break;
+        // case 8:
+        //     updateTransacHist(&customer);
+        //     break;
+        default:
+            printf("invalid choice");
+            break;
+    }
+    }while(choice !=6);
+
+}
+void EmployeeFunc(struct Customer* custArray) {
+    int choice, choice2 ,check =1;
     do {
         printf("Employee Panel\n");
         printf("1. Member Account Access\n");
-        printf("2. Update Account Details\n");
-        printf("3. Block Cards\n");
-        printf("4. Transaction History\n");
-        printf("5. Exit\n");
+        printf("2. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
         switch (choice) {
             case 1:
                 printf("Enter the account number to access: ");
-                scanf("%d", &accountNumber);
-                accountIdx = findAccount(custArray, accountNumber); // Function to find the index of the account in custArray
-                if (accountIdx != -1) {
-                    // Access account with custArray[accountIdx]
-                    // Perform actions on the account
-                } else {
+                scanf("%d", &accNo);
+                for(int i=0;i<=accNumsIdx;i++){
+                    if(accNum[i]==accNo){
+                        features(&custArray[i]);
+                    }else {
+                        check =0;
+                    }
+                }
+                if(check ==0){
                     printf("Account not found.\n");
                 }
                 break;
             case 2:
-                printf("Enter the account number to update details: ");
-                scanf("%d", &accountNumber);
-                accountIdx = findAccount(custArray, accountNumber); // Function to find the index of the account in custArray
-                if (accountIdx != -1) {
-                    // Update account details with custArray[accountIdx]
-                    // Modify account information
-                } else {
-                    printf("Account not found.\n");
-                }
-                break;
-            case 3:
-                printf("Enter the account number to block: ");
-                scanf("%d", &accountNumber);
-                accountIdx = findAccount(custArray, accountNumber); // Function to find the index of the account in custArray
-                if (accountIdx != -1) {
-                    // Block cards associated with custArray[accountIdx]
-                    // Modify account status or card status
-                } else {
-                    printf("Account not found.\n");
-                }
-                break;
-            case 4:
-                printf("Enter the account number for transaction history: ");
-                scanf("%d", &accountNumber);
-                accountIdx = findAccount(custArray, accountNumber); // Function to find the index of the account in custArray
-                if (accountIdx != -1) {
-                    transactionHistory(&custArray[accountIdx]); // Function to display transaction history
-                } else {
-                    printf("Account not found.\n");
-                }
-                break;
-            case 5:
                 printf("Exiting the employee panel.\n");
                 break;
             default:
                 printf("Invalid choice. Please try again.\n");
+                break;
         }
-    } while (choice != 5);
+    } while (choice != 2);
 }
-
-// Function to find the index of the account in the custArray
-int findAccount(struct Customer* custArray, int accountNumber) {
-    for (int i = 0; i < accNums; i++) {
-        if (custArray[i].accDet.accountNumber == accountNumber) {
-            return i;
-        }
-    }
-    return -1;
-}
-

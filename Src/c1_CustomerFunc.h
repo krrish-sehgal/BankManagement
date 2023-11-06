@@ -1,4 +1,4 @@
-
+#pragma once
 #include "../subCustomerFuncs/c2_createAcc.h"
 #include "../subCustomerFuncs/c3_displayAccInfo.h"
 #include "../subCustomerFuncs/c4_deposit.h"
@@ -11,10 +11,9 @@
 
 int accNum[accNums];
 int accNumsIdx =0;
+int accNo ;
 
 void CustomerFunc(struct Customer*custArray){
-
-    int accNo ;
     int choice1,choice2 , check = 1;
     float amt; 
     do{

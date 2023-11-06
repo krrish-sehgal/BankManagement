@@ -18,11 +18,11 @@ int main() {
             CustomerFunc(custArray);
         } else if (userType == 2) {
             printf("You are a Manager.\n");
-            ManagerFunc();
+            // ManagerFunc();
 
         } else if (userType == 3) {
             printf("You are an Employee.\n");
-            // EmployeeFunc();
+            EmployeeFunc(custArray);
         } else if(userType !=0){
             printf("Invalid input. Please enter C, M, or E.\n");
         }

@@ -1,3 +1,5 @@
+
+#pragma once
 #include "../CustomerStructs/s1_Customer.h"
 
 void displayAccInfo(struct Customer * customer){
