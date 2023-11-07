@@ -13,7 +13,7 @@ int main() {
     printf("Welcome to the Banking System\n");
     printf("Are you a 1.Customer, 2.Manager, or 3.Employee ,0 exit.? (Enter 1, 2, 3 or 0): ");
     scanf("%d",&userType);
-        if (userType == 1) {
+        if(userType == 1) {
             printf("You are a Customer.\n");
             CustomerFunc(custArray);
         } else if (userType == 2) {
