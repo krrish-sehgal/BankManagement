@@ -2,9 +2,6 @@
 #include<stdio.h>
 #include "../CustomerStructs/s1_Customer.h"
 
-   
-
-
 void changeType(struct Customer *customer) {
     printf("Select the account type you want to modify to:\n");
     printf("1. Current Account\n");
@@ -18,13 +15,10 @@ void changeType(struct Customer *customer) {
     switch (choice) {
         case 1:
             customer->accDet.accountType="Current Account";
-            
             break;
         case 2:
             customer->accDet.accountType="savings Account";
             break;
-        
-
         default:
             printf("Error: Invalid choice. Please select a valid option.\n");
            
