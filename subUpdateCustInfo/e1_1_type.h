@@ -13,26 +13,21 @@ void changeType(struct Customer *customer) {
 
     int choice;
     printf("Enter your choice (1, 2): ");
-
-    // Adding error handling for user input
-    if (scanf("%d", &choice) != 1) {
-        fprintf(stderr, "Error: Invalid input for account type selection.\n");
-        // Handle error as needed
-        return;
-    }
+    scanf("%d",&choice);
 
     switch (choice) {
         case 1:
-            snprintf(customer->accDet.accountType, sizeof(customer->accDet.accountType), "Current Account");
+            customer->accDet.accountType="Current Account";
+            
             break;
         case 2:
-            snprintf(customer->accDet.accountType, sizeof(customer->accDet.accountType), "Savings Account");
+            customer->accDet.accountType="savings Account";
             break;
-        // Add more cases for additional options
+        
 
         default:
-            fprintf(stderr, "Error: Invalid choice. Please select a valid option.\n");
-            // Handle error as needed
+            printf("Error: Invalid choice. Please select a valid option.\n");
+           
             break;
     }
 }
