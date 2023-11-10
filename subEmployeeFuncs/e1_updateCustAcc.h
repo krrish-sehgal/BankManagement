@@ -2,27 +2,6 @@
 #include "../CustomerStructs/s1_Customer.h"
 #include "stdio.h"
 
-// struct accountDetails{
-//     int accountNumber;
-//     char accountType[100];
-//     char accountTitle[100];
-//     double accountBalance;
-//     int accountStatus; // Use 0 for active, 1 for closed, etc.
-//     double interestRate;
-//     double minimumBalance;
-//     struct history transHis;
-// };
-// struct Customer{
-//     //to be inputted
-//     char fullName[100];              // Full legal name
-//     char dateOfBirth[12];           // Date of birth (e.g., "YYYY-MM-DD")
-//     char contactInfo[100];           // Contact information (address, phone number, email)
-//     char citizenshipStatus[50];     // Citizenship status
-//     char governmentID[50];          //Adhar
-//     struct accountDetails accDet;        // allows us to just create a customer object and then access this c.a.member of accDets.
-//     struct CreditCard creditCard;
-// };
-
 void changeStatus(struct Customer * customer){
     int choice2;
     if(customer->accDet.accountStatus){
@@ -50,16 +29,16 @@ void updateCustAccInfo(struct Customer* customer){
     int choice ;
     do{
         printf("1.Update the account number\n");
-        printf("1.Change the account Type\n");
-        printf("1.Change the account Status\n");
-        printf("1.Update the account interestRate\n");
-        printf("1.Update the account  transaction history\n");
-        printf("1.Change the account History\n");
-        printf("1.Change the account ContactInfo\n");
-        printf("1.Change the dateOfBirth\n");
-        printf("1.Change the account Account owner's name\n");
-        printf("1.Change the account govtID details\n");
-        printf("1.Change the account minimum Balance\n");
+        printf("2.Change the account Type\n");
+        printf("3.Change the account Status\n");
+        printf("4.Update the account interestRate\n");
+        printf("5.Update the account  transaction history\n");
+        printf("6.Change the account History\n");
+        printf("7.Change the account ContactInfo\n");
+        printf("8.Change the dateOfBirth\n");
+        printf("9.Change the account Account owner's name\n");
+        printf("10.Change the account govtID details\n");
+        printf("11.Change the account minimum Balance\n");
         scanf("%d",&choice);
 
         switch(choice){
@@ -75,13 +54,32 @@ void updateCustAccInfo(struct Customer* customer){
                 changeStatus(customer);
                 break;
             case 4:
-
-                
+                changeInterestRate(customer);
+                break;
+            case 5:
+                updateTransac(customer);
+                break;
+            case 6:
+                AccountHist(customer);
+                break;
+            case 7:
+                ContactInfo(customer);
+                break;
+            case 8:
+                DateOfBirth(customer);
+                break;
+            case 9:
+                ownersName(customer);
+                break;
+            case 10:
+                updateGovtId(customer);
+                break;
+            case 11:
+                minbalance(customer);
+                break;
+            default:
+                printf("Invalid choice\n");
         }
+    }while(choice);
 
-
-
-        
-    }
-
-}   
+}

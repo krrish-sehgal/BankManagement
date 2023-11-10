@@ -3,6 +3,6 @@
 
 
 void ManagerFunc(){
-    printf("chekc");
+    
 };
 
