@@ -2,8 +2,26 @@
 #include<stdio.h>
 #include "../CustomerStructs/s1_Customer.h"
 
-void changeType(struct Customer * customer){
-    //ask do you want to change , if not return as in status
-    printf("enter the new interstRate to be put on the account %d",customer->accDet.accountNumber); // change it to 1,2,3 options like savings vageh 
-    scanf("%s",customer->accDet.accountType );
-}   
+  void changeInterestRate(struct Customer *customer) {
+    char response;
+    printf("Do you want to change the interest rate for account %d? (y/n): ", customer->accDet.accountNumber);
+    scanf(" %c", &response);
+
+    if (response != 'y' && response != 'Y') {
+        printf("Interest rate unchanged.\n");
+        
+    }
+
+ else if( response == 'y' && response == 'Y') { 
+printf("Enter the new interest rate for account %d: ", customer->accDet.accountNumber);
+
+
+scanf("%f", &customer->accDet.interestRate);
+
+
+printf("Interest rate for account %d updated to %.2f%%.\n", customer->accDet.accountNumber, customer->accDet.interestRate);}
+
+else{
+    printf("Error: Invalid choice. Please select a valid option.\n");
+}
+}
