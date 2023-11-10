@@ -10,14 +10,11 @@ void features(struct Customer* customer){
     int choice;
     do{
     printf("Features\n");
-    printf("1. Member Account Details\n");
-    printf("2. update info\n");
+    printf("1. Update Member Account Details\n");
+    printf("2. Display Account info\n");
     printf("3. block cards\n");
     printf("4. remove customer\n");
-    printf("5. change account Typer\n");
-    printf("6. Transaction history\n");
-    printf("7. Update Transaction history\n");
-    printf("8. exit\n");
+    printf("5. exit\n");
 
     printf("Enter your choice: ");
     scanf("%d", &choice);
@@ -25,6 +22,9 @@ void features(struct Customer* customer){
     switch(choice){
         case 1:
             updateCustAccInfo(customer);          //use subfunction of custiomer(fiel c3)
+            break;
+        case 2:
+            displayAccInfo(customer);
             break;
         case 3:
             BlockCards(&customer);
@@ -39,7 +39,6 @@ void features(struct Customer* customer){
             break;
     }
     }while(choice !=6);
-
 }
 void EmployeeFunc(struct Customer* custArray) {
     int choice, choice2 ,check =1;

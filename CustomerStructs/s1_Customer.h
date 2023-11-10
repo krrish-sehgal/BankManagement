@@ -4,9 +4,10 @@ struct CreditCard {
     int isActive;
     int isIssued;
 
+    
     char *cardNumber; // Credit card number (including hyphens or spaces)        16digits + 3 spaces
     char* cardHolderName; 
-    char *expirationDate; // Expiration date (in "MM/YYYY" format)
+    char *expirationDate; // Expiration date (in "DD/MM/YYYY" format)
     char *issuer; // Credit card issuer (e.g., Visa, MasterCard)
 
     double creditLimit; // Credit limit for the card
@@ -20,7 +21,7 @@ struct cheque{
 
 };
 struct history{
-    char * transactionTime[100];
+    char *transactionTime[100];
     char * transactionDate[100];
     int transactions[100];
     int custIdx;            
