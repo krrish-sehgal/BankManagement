@@ -26,27 +26,14 @@ void features(struct Customer* customer){
         case 1:
             updateCustAccInfo(customer);          //use subfunction of custiomer(fiel c3)
             break;
-        // case 2:
-        //     custUpdate(&customer);
-        //     break;
-        // case 3:
-        //     BlockCards(&customer);
-        //      break;
-        // case 4:
-        //     removeAccount(&customer);
-        //     break;
-        // case 5:
-        //     changeAccType(&customer);
-        //     break;
-        // case 6:
-        //     changeAccType(&customer);
-        //     break;
-        // case 7:
-        //     transactionHistory(&customer);                  //use subfunction of custer (file c6)
-        //     break;
-        // case 8:
-        //     updateTransacHist(&customer);
-        //     break;
+        case 3:
+            BlockCards(&customer);
+            break;
+        case 4:
+            removeAccount(&customer);
+            break;
+        case 5:
+            rasieAdispute(&customer);
         default:
             printf("invalid choice");
             break;

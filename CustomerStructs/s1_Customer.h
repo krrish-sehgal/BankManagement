@@ -40,6 +40,8 @@ struct Customer{
     char fullName[100];              // Full legal name
     char dateOfBirth[12];           // Date of birth (e.g., "YYYY-MM-DD")
     char contactInfo[100];           // Contact information (address, phone number, email)
+    char address[100];
+    char email[100];
     char citizenshipStatus[50];     // Citizenship status
     char governmentID[50];          //Adhar
     struct accountDetails accDet;        // allows us to just create a customer object and then access this c.a.member of accDets.
