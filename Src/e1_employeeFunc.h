@@ -1,12 +1,14 @@
 #pragma once
 #include <stdio.h>
 #include "c1_CustomerFunc.h"
-// #include "../CustomerStructs/s1_Customer.h"
+#include "../CustomerStructs/s1_Customer.h"
 #include "../subCustomerFuncs/c3_displayAccInfo.h"
 #include "../subEmployeeFuncs/e1_updateCustAcc.h"
+#include "../subEmployeeFuncs/e2_blockCards.h"
+#include "../subEmployeeFuncs/e3_removeAcc.h"
 
 
-void features(struct Customer* customer){
+void features(struct Customer* customer, struct Customer* custArray){
     int choice;
     do{
     printf("Features\n");
@@ -14,26 +16,28 @@ void features(struct Customer* customer){
     printf("2. Display Account info\n");
     printf("3. block cards\n");
     printf("4. remove customer\n");
-    printf("5. exit\n");
+    printf("5. raise a dispute\n");
+    printf("6. Exit\n");
+
 
     printf("Enter your choice: ");
     scanf("%d", &choice);
 
     switch(choice){
         case 1:
-            updateCustAccInfo(customer);          //use subfunction of custiomer(fiel c3)
+            updateCustAccInfo(customer);          
             break;
         case 2:
-            displayAccInfo(customer);
+            displayAccInfo(customer);           //use subfunction of custiomer(fiel c3)
             break;
         case 3:
-            BlockCards(&customer);
+            BlockCards(customer);
             break;
         case 4:
-            removeAccount(&customer);
-            break;
+            removeAccount(customer ,custArray);
+            return;
         case 5:
-            rasieAdispute(&customer);
+            // rasieAnddispute(&customer);           //use file handling
         default:
             printf("invalid choice");
             break;
@@ -55,7 +59,7 @@ void EmployeeFunc(struct Customer* custArray) {
                 scanf("%d", &accNo);
                 for(int i=0;i<=accNumsIdx;i++){
                     if(accNum[i]==accNo){
-                        features(&custArray[i]);
+                        features(&custArray[i] , custArray);
                     }else {
                         check =0;
                     }

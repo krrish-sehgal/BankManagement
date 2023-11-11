@@ -24,29 +24,22 @@ char* generateRandomCreditCardNumber() {
     return cardNumber;
 }
 char* generateExpirationDates() {
-    time_t currentTime;
-    struct tm currentTM;
+    // Get the current time
+    time_t currentTime = time(NULL);
 
-    // Get the current year and month
-    time(&currentTime);
-    currentTM = *localtime(&currentTime);
-    int currentYear = currentTM.tm_year + 1900;  // Adjust for the tm structure's year representation
-    int currentMonth = currentTM.tm_mon + 1;     // Adjust for the tm structure's month representation
+    // Add 9 years (in seconds) to the current time
+    time_t futureTime = currentTime + (9 * 365 * 24 * 60 * 60);
 
-    // Create a buffer to store the generated expiration dates
-    char* expirationDates = (char*)malloc(100); // Assuming the maximum length required is 100 characters
+    // Convert the future time to a struct tm
+    struct tm *futureDate = localtime(&futureTime);
 
-    if (expirationDates != NULL) {
-        // Initialize the buffer
-        expirationDates[0] = '\0';
+    // Allocate memory for the date string (YYYY-MM-DD + '\0')
+    char *dateString = (char *)malloc(11 * sizeof(char));
 
-        // Generate and concatenate expiration dates
-        for (int i = currentYear; i < currentYear + 9; i++) {
-            sprintf(expirationDates + strlen(expirationDates), "%02d/%02d\n", currentMonth, i % 100);
-        }
-    }
+    // Format the date string
+    strftime(dateString, 11, "%Y-%m-%d", futureDate);
 
-    return expirationDates;
+    return dateString;
 }
 char* generateCvv() {
     char* numberStr = (char*)malloc(4);  // Room for 3 digits + null terminator

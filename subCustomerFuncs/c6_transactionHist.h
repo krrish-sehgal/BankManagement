@@ -1,5 +1,6 @@
 #pragma once
 #include "../CustomerStructs/s1_Customer.h"
+#include "string.h"
 #include <stdio.h>
 
 void transactionHistory(struct Customer*customer){

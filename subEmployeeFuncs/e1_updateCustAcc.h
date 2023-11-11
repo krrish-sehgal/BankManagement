@@ -1,5 +1,16 @@
 #pragma once
 #include "../CustomerStructs/s1_Customer.h"
+#include "../subUpdateCustInfo/e1_1_type.h"
+#include "../subUpdateCustInfo/e1_2_Status.h"
+#include "../subUpdateCustInfo/e1_3_InterestRate.h"
+#include "../subUpdateCustInfo/e1_4_TransacHist.h"
+#include "../subUpdateCustInfo/e1_5_ContactInfo.h"
+#include "../subUpdateCustInfo/e1_6_Dob.h"
+#include "../subUpdateCustInfo/e1_7_name.h"
+#include "../subUpdateCustInfo/e1_8_govtID.h"
+#include "../subUpdateCustInfo/e1_9_minBalance.h"
+
+#include <string.h>
 #include "stdio.h"
 
 
@@ -17,6 +28,8 @@ void updateCustAccInfo(struct Customer* customer){
         printf("8.Change the account Account owner's name\n");
         printf("9.Change the account govtID details\n");
         printf("10.Change the account minimum Balance\n");
+        printf("11.To exit\n");
+
         scanf("%d",&choice);
 
         switch(choice){
@@ -54,6 +67,6 @@ void updateCustAccInfo(struct Customer* customer){
             default:
                 printf("Invalid choice\n");
         }
-    }while(choice);
+    }while(choice!=11);
 
 }

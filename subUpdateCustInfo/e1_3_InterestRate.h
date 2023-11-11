@@ -16,7 +16,7 @@
 printf("Enter the new interest rate for account %d: ", customer->accDet.accountNumber);
 
 
-scanf("%f", &customer->accDet.interestRate);
+scanf("%lf", &customer->accDet.interestRate);
 
 
 printf("Interest rate for account %d updated to %.2f%%.\n", customer->accDet.accountNumber, customer->accDet.interestRate);}

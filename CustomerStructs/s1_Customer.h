@@ -22,7 +22,7 @@ struct cheque{
 };
 struct history{
     char *transactionTime[100];
-    char * transactionDate[100];
+    char *transactionDate[100];
     int transactions[100];
     int custIdx;            
 };

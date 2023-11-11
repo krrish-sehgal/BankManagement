@@ -1,5 +1,6 @@
-
+#pragma once
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
 #include <string.h>
 #include "../CustomerStructs/s1_Customer.h"
@@ -14,7 +15,8 @@ int randomAccNo() {
 
     return randomNum;   
 }
-//creates an object , and takes the info for the customer account creation 
+// creates an object , and takes the info for the customer account creation 
+
 void createAccount(struct Customer *customer) {
 
     char type[100];
@@ -30,28 +32,36 @@ void createAccount(struct Customer *customer) {
     
     printf("Contact Information:\n");
     printf("Address: ");
-    scanf(" %s\n", customer->contactInfo);
+    gets(customer->address);
+
+    printf("Phone: ");
+    gets(customer->contactInfo);
+
+    printf("Email: ");
+    gets(customer->email);
+
+    
     
     printf("Citizenship Status: ");
     scanf(" %s\n", customer->citizenshipStatus);
     
     printf("Government-issued ID (e.g., Driver's License): ");
     scanf(" %s\n", customer->governmentID);
-    printf("account is created\n");
+    printf("account is created\n\n");
 
 
-    //for account details
+    // //for account details
     customer->accDet.accountNumber = randomAccNo();
-    printf("your account number is generated and is %d" , customer->accDet.accountNumber);
+    printf("x-------x--------x\nyour account number is generated and is %d\nx-------x--------x\n" , customer->accDet.accountNumber);
     customer->accDet.accountBalance = 0;
     customer->accDet.accountStatus = 1;
-    strcpy(customer->accDet.accountTitle ,customer->fullName);
-    strcpy(customer->accDet.accountType ,type);
+    customer->accDet.accountTitle =customer->fullName;
+    customer->accDet.accountType =type;
 
-    //for transaction history
+    // //for transaction history
     customer->accDet.transHis.custIdx = 0;
 
-    //for Credit Card
+    // //for Credit Card
     customer->creditCard.isIssued =0;
     customer->creditCard.isActive =0;
 

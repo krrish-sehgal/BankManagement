@@ -3,7 +3,7 @@
 #include "../CustomerStructs/s1_Customer.h"
 
 
-void contactInfo(struct Customer* customer) {
+void ContactInfo(struct Customer* customer) {
     printf("Address: %s\n", customer->address);
     printf("MobileNo: %s\n", customer->contactInfo);
 
