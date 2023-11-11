@@ -77,14 +77,19 @@ void CreditCardIssue(struct Customer* customer){
     }
     if(choice!=4){ 
         customer->creditCard.isIssued =1;
+        
+        customer->creditCard.cardHolderName = (char*)malloc(50*sizeof(char));
         customer->creditCard.cardHolderName = customer->fullName;
 
         customer->creditCard.cardNumber = (char*)malloc(16*sizeof(char));
         customer->creditCard.cardNumber = generateRandomCreditCardNumber();
-        
+
         customer->creditCard.currentBalance = 30000;
         customer->creditCard.creditLimit = 30000;
+
+        customer->creditCard.expirationDate = (char*)malloc(100*sizeof(char));
         customer->creditCard.expirationDate = generateExpirationDates();
+
         customer->creditCard.cvv = generateCvv();
     }
 }

@@ -28,8 +28,8 @@ struct history{
 };
 struct accountDetails{
     int accountNumber;
-    char accountType[100];
-    char accountTitle[100];
+    char* accountType;
+    char* accountTitle;
     double accountBalance;
     int accountStatus; // Use 0 for active, 1 for closed, etc.
     double interestRate;
