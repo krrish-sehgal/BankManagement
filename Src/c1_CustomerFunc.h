@@ -5,7 +5,8 @@
 #include "../subCustomerFuncs/c5_withdraw.h"
 #include "../subCustomerFuncs/c6_transactionHist.h"
 #include "../subCustomerFuncs/c7_creditCard.h"
-
+#include "../subCustomerFuncs/c8_raiseDispute.h"
+#include "../subCustomerFuncs/c9_isResolved.h"
 
 #define accNums 100
 
@@ -30,14 +31,15 @@ void CustomerFunc(struct Customer*custArray){
         if(accNum[i]==accNo){
             do {
                 printf("\nAccount Management System Menu:\n");
+                printf("0. exit\n");
                 printf("1. Display Account Information\n");
                 printf("2. Deposit\n");
                 printf("3. Withdraw\n");
                 printf("4. TransactionHistory\n");
                 printf("5. CreditCard\n");
-                printf("6. DebitCard\n");
-                printf("7. Cheques\n");
-                printf("8. exit\n");
+                printf("6. RaiseDispute\n");
+                printf("7. Check if Query Resolved?\n");
+                
 
                 printf("Enter your choice: ");
                 scanf("%d", &choice2);
@@ -63,18 +65,24 @@ void CustomerFunc(struct Customer*custArray){
                         CreditCard(&custArray[i]);
                         break;
                     case 6:
-                        // DebitCard(&custArray[i]);
+                        if(custArray[i].query==0){
+                            raiseDispute(&custArray[i]);
+                        }else{
+                            printf("there's already a query pending to be resolved");
+                        }
                         break;
                     case 7:
-                        // Cheques(&custArray[i]);
+                        if(custArray[i].resolved){
+                            isQueryResolved(&custArray[i]);
+                        }else printf("Not yet resolved");
                         break;
-                    case 8:
+                    case 0:
                         printf("Exiting the program. Thank you!\n");
                         break;
                     default:
                         printf("Invalid choice. Please try again.\n");
                 }
-            } while (choice2 != 8);
+            } while (choice2);
             break;
         }else{
             check = 0;

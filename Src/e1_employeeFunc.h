@@ -6,6 +6,8 @@
 #include "../subEmployeeFuncs/e1_updateCustAcc.h"
 #include "../subEmployeeFuncs/e2_blockCards.h"
 #include "../subEmployeeFuncs/e3_removeAcc.h"
+#include "../subEmployeeFuncs/e4_solveDispute.h"
+
 
 
 void features(struct Customer* customer, struct Customer* custArray){
@@ -16,7 +18,7 @@ void features(struct Customer* customer, struct Customer* custArray){
     printf("2. Display Account info\n");
     printf("3. block cards\n");
     printf("4. remove customer\n");
-    printf("5. raise a dispute\n");
+    printf("5. Solve a dispute\n");
     printf("6. Exit\n");
 
 
@@ -37,7 +39,11 @@ void features(struct Customer* customer, struct Customer* custArray){
             removeAccount(customer ,custArray);
             return;
         case 5:
-            // rasieAnddispute(&customer);           //use file handling
+            if(customer->resolved!=1){
+                solveDispute(customer);           //use file handling
+            }else{
+                printf("All queries resolved\n");
+            }
         default:
             printf("invalid choice");
             break;

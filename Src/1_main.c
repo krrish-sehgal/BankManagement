@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include "c1_CustomerFunc.h"
-#include "m1_ManagerFunc.h"
 #include "e1_employeeFunc.h"
 
 int main() {
@@ -11,16 +10,12 @@ int main() {
 
     do{
     printf("Welcome to the Banking System\n");
-    printf("Are you a 1.Customer, 2.Manager, or 3.Employee ,0 exit.? (Enter 1, 2, 3 or 0): ");
+    printf("Are you a 1.Customer, 2.Employee ,0 exit.? (Enter 1, 2 or 0): ");
     scanf("%d",&userType);
         if(userType == 1) {
             printf("You are a Customer.\n");
             CustomerFunc(custArray);
         } else if (userType == 2) {
-            printf("You are a Manager.\n");
-            // ManagerFunc();
-
-        } else if (userType == 3) {
             printf("You are an Employee.\n");
             EmployeeFunc(custArray);
         } else if(userType !=0){

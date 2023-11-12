@@ -3,7 +3,7 @@
 #include "../CustomerStructs/s1_Customer.h"
 
 void changeType(struct Customer *customer) {
-    printf("Select the account type you want to modify to:\n");
+    printf("Select the account type you want:\n");
     printf("1. Current Account\n");
     printf("2. Savings Account\n");
     // Add more options as needed

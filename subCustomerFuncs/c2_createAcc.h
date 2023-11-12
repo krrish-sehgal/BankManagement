@@ -4,6 +4,8 @@
 #include <time.h>
 #include <string.h>
 #include "../CustomerStructs/s1_Customer.h"
+#include "../subUpdateCustInfo/e1_1_type.h"
+
 
 
 int randomAccNo() {
@@ -22,7 +24,7 @@ void createAccount(struct Customer *customer) {
     char type[100];
     printf("Creating a new customer account\n");
     printf("enter the account type\n");
-    scanf("%s",type);
+    changeType(customer);
     
     printf("Full Name: ");
     scanf(" %s\n", customer->fullName);
@@ -32,16 +34,18 @@ void createAccount(struct Customer *customer) {
     
     printf("Contact Information:\n");
     printf("Address: ");
-    gets(customer->address);
+    scanf("%s\n", customer->address);
+    // fgets(customer->address, sizeof(customer->address), stdin);
+    //gets(customer->address);
 
     printf("Phone: ");
-    gets(customer->contactInfo);
+    scanf("%s\n", customer->contactInfo);
+    // fgets(customer->contactInfo,sizeof(customer->contactInfo),stdin);
 
     printf("Email: ");
-    gets(customer->email);
+    scanf("%s\n", customer->email);
+    // fgets(customer->email,sizeof(customer->email),stdin);
 
-    
-    
     printf("Citizenship Status: ");
     scanf(" %s\n", customer->citizenshipStatus);
     
@@ -50,19 +54,25 @@ void createAccount(struct Customer *customer) {
     printf("account is created\n\n");
 
 
-    // //for account details
+    //for account details
     customer->accDet.accountNumber = randomAccNo();
+    // customer->accDet.accountNumber = 482733411;
+
     printf("x-------x--------x\nyour account number is generated and is %d\nx-------x--------x\n" , customer->accDet.accountNumber);
     customer->accDet.accountBalance = 0;
     customer->accDet.accountStatus = 1;
     customer->accDet.accountTitle =customer->fullName;
     customer->accDet.accountType =type;
 
-    // //for transaction history
+    //for transaction history
     customer->accDet.transHis.custIdx = 0;
 
-    // //for Credit Card
+    //for Credit Card
     customer->creditCard.isIssued =0;
     customer->creditCard.isActive =0;
+
+    //for query
+    customer->resolved =0;
+    customer->query = 0;
 
 }

@@ -14,12 +14,6 @@ struct CreditCard {
     double currentBalance; 
     char * cvv; 
 };
-struct debitCard{
-    
-};
-struct cheque{
-
-};
 struct history{
     char *transactionTime[100];
     char *transactionDate[100];
@@ -47,4 +41,8 @@ struct Customer{
     char governmentID[50];          //Adhar
     struct accountDetails accDet;        // allows us to just create a customer object and then access this c.a.member of accDets.
     struct CreditCard creditCard;
+
+    int query;
+    int resolved;
+
 };
