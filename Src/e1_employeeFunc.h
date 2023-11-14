@@ -42,8 +42,9 @@ void features(struct Customer* customer, struct Customer* custArray){
             if(customer->resolved!=1){
                 solveDispute(customer);           //use file handling
             }else{
-                printf("All queries resolved\n");
+                printf("\nAll queries resolved\n");
             }
+            break;
         default:
             printf("invalid choice");
             break;
@@ -64,7 +65,7 @@ void EmployeeFunc(struct Customer* custArray) {
                 printf("Enter the account number to access: ");
                 scanf("%d", &accNo);
                 for(int i=0;i<=accNumsIdx;i++){
-                    if(accNum[i]==accNo){
+                    if(custArray[i].accDet.accountNumber==accNo){
                         features(&custArray[i] , custArray);
                     }else {
                         check =0;
