@@ -4,7 +4,6 @@ struct CreditCard {
     int isActive;
     int isIssued;
 
-    
     char *cardNumber; // Credit card number (including hyphens or spaces)        16digits + 3 spaces
     char* cardHolderName; 
     char *expirationDate; // Expiration date (in "DD/MM/YYYY" format)
@@ -17,7 +16,7 @@ struct CreditCard {
 struct history{
     char *transactionTime[100];
     char *transactionDate[100];
-    int transactions[100];
+    double transactions[100];
     int custIdx;            
 };
 struct accountDetails{
@@ -36,7 +35,10 @@ struct Customer{
     char dateOfBirth[12];           // Date of birth (e.g., "YYYY-MM-DD")
     char contactInfo[100];           // Contact information (address, phone number, email)
     char address[100];
-    char email[100];
+
+    char email[50];
+    char password[20];
+
     char citizenshipStatus[50];     // Citizenship status
     char governmentID[50];          //Adhar
     struct accountDetails accDet;        // allows us to just create a customer object and then access this c.a.member of accDets.

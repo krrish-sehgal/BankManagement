@@ -20,8 +20,8 @@ void CreditCard(struct Customer * customer){
                 return;
         }
     }if(!customer->creditCard.isActive){
-        printf("not active\n");
-        printf("want to activate , 1.yes or 2.No");
+        printf("Credit is issued but it is not activated\n");
+        printf("Would you like to activate you card:\n1.yes\n2.No\nEnter your choice: ");
         scanf("%d",&choice);
         switch(choice){
             case 1:
@@ -30,13 +30,12 @@ void CreditCard(struct Customer * customer){
                 break;
             case 2:
                 printf("exitied");
-                break;
+                return;
             default:
                 printf("invalid");
                 break;
         }
-    }else{
-        printf("Display Credit Card Details");
-        CreditCardDetails(customer);
     }
+    printf("\nDisplay Credit Card Details\n");
+    CreditCardDetails(customer);
 }       

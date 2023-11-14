@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "c4_deposit.h": "c"
+        "c4_deposit.h": "c",
+        "e1_1_type.h": "c"
     }
 }

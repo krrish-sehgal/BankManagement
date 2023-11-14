@@ -5,8 +5,7 @@
 #include <string.h>
 #include "../CustomerStructs/s1_Customer.h"
 #include "../subUpdateCustInfo/e1_1_type.h"
-
-
+// #include "../Src/c1_CustomerFunc.h"
 
 int randomAccNo() {
     // Seed the random number generator with the current time
@@ -19,40 +18,65 @@ int randomAccNo() {
 }
 // creates an object , and takes the info for the customer account creation 
 
-void createAccount(struct Customer *customer) {
+void createAccount(struct Customer *customer ,struct Customer * custArray,int accNumsIdx) {
 
     char type[100];
+    char checkEmail[50] , checkPass[20];
+    int flag =1;
+
     printf("Creating a new customer account\n");
-    printf("enter the account type\n");
+
+    printf("Email: (all smallCases) ");
+    scanf("%s", checkEmail);
+    // printf("%s\n",checkEmail);
+
+    printf("Create your password for Internet banking ");
+    scanf("%s",checkPass);
+    // printf("%s\n",checkPass);
+
+    for(int i=0;i<=accNumsIdx;i++){
+        if(strcmp(custArray[i].email,checkEmail)==0){
+            flag = 0;
+            break;
+        }
+    }
+    if(flag){
+    strcpy(customer->email,checkEmail);
+    // printf("%s\n",customer->email);
+
+
+    strcpy(customer->password,checkPass);
+    // printf("%s\n",customer->password);
+
+
+    printf("enter the account type ");
     changeType(customer);
     
     printf("Full Name: ");
-    scanf(" %s\n", customer->fullName);
+    scanf("%s", customer->fullName);
     
     printf("Date of Birth (YYYY-MM-DD): ");
-    scanf("%s\n", customer->dateOfBirth);
+    scanf("%s", customer->dateOfBirth);
     
     printf("Contact Information:\n");
     printf("Address: ");
-    scanf("%s\n", customer->address);
+    scanf("%s", customer->address);
     // fgets(customer->address, sizeof(customer->address), stdin);
     //gets(customer->address);
 
     printf("Phone: ");
-    scanf("%s\n", customer->contactInfo);
+    scanf("%s", customer->contactInfo);
     // fgets(customer->contactInfo,sizeof(customer->contactInfo),stdin);
 
-    printf("Email: ");
-    scanf("%s\n", customer->email);
-    // fgets(customer->email,sizeof(customer->email),stdin);
-
     printf("Citizenship Status: ");
-    scanf(" %s\n", customer->citizenshipStatus);
+    scanf(" %s", customer->citizenshipStatus);
     
     printf("Government-issued ID (e.g., Driver's License): ");
-    scanf(" %s\n", customer->governmentID);
+    scanf(" %s", customer->governmentID);
+
     printf("account is created\n\n");
 
+    // fgets(customer->email,sizeof(customer->email),stdin);
 
     //for account details
     customer->accDet.accountNumber = randomAccNo();
@@ -62,7 +86,6 @@ void createAccount(struct Customer *customer) {
     customer->accDet.accountBalance = 0;
     customer->accDet.accountStatus = 1;
     customer->accDet.accountTitle =customer->fullName;
-    customer->accDet.accountType =type;
 
     //for transaction history
     customer->accDet.transHis.custIdx = 0;
@@ -74,5 +97,9 @@ void createAccount(struct Customer *customer) {
     //for query
     customer->resolved =0;
     customer->query = 0;
+    }else{
+        printf("Email Account already exsists\n");
+        return;
+    }
 
 }

@@ -52,7 +52,7 @@ char* generateCvv() {
 void CreditCardIssue(struct Customer* customer){
     int choice;
 
-    printf("enter the issuer 1) master\n , 2) visa\n , 3) rupay , 4)Dont issue\n ");
+    printf("Enter the Issuer:\n1) master\n2)visa\n3)upay\n4)Dont issue\nEnter your choice: ");
     scanf("%d",&choice);
     switch(choice){
         case 1:

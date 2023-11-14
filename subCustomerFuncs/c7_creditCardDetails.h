@@ -1,7 +1,8 @@
 #pragma once
 #include <stdio.h>
 #include "../CustomerStructs/s1_Customer.h"
-#include "c7_FullCreditCard.h"
+#include "c7_payBill.h"
+
 
 
 void CreditCardDetails(struct Customer * customer){
@@ -16,7 +17,7 @@ void CreditCardDetails(struct Customer * customer){
         printf("6. Display Credit Limit\n");
         printf("7. Display Current Balance\n");
         printf("8. Display CVV\n");
-        printf("9. Display full credit card\n");
+        printf("9. Pay bill\n");
         printf("10. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -50,16 +51,19 @@ void CreditCardDetails(struct Customer * customer){
             case 8:
                 printf("CVV: %s\n", customer->creditCard.cvv);
                 break;
-            case 9:
-                printf("Full credit card is:\n ");
-                FullCreditCard(customer);
-                break;
+            case 9: 
+                if(customer->creditCard.creditLimit>customer->creditCard.currentBalance){
+                    printf("Bill due: %f",customer->creditCard.creditLimit-customer->creditCard.currentBalance);
+                    payBill(customer);
+                }else{
+                    printf("\nNO dues\n");
+                }
             case 10:
                 printf("Exiting the menu. Thank you!\n");
                 break;
             default:
                 printf("Invalid choice. Please try again.\n");
         }
-    } while (choice != 10);
+    } while (choice != 9);
 
 }

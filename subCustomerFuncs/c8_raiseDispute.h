@@ -1,6 +1,6 @@
 #pragma once
 #include "../CustomerStructs/s1_Customer.h"
-#include "c9_isResolved.h"
+// #include "c9_isResolved.h"
 #include "string.h"
 #include <stdio.h>
 
@@ -18,7 +18,3 @@ void raiseDispute(struct Customer*customer){
     customer->query =1;
 
 }
-// int main(){
-//     struct Customer c;
-//     raiseDispute(&c);
-// }

@@ -9,9 +9,9 @@ void changeType(struct Customer *customer) {
     // Add more options as needed
 
     int choice;
+    do{
     printf("Enter your choice (1, 2): ");
     scanf("%d",&choice);
-
     switch (choice) {
         case 1:
             customer->accDet.accountType="Current Account";
@@ -21,7 +21,7 @@ void changeType(struct Customer *customer) {
             break;
         default:
             printf("Error: Invalid choice. Please select a valid option.\n");
-           
             break;
     }
+    }while(choice!=1 && choice!=2);
 }
