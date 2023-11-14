@@ -9,8 +9,8 @@ int main() {
     struct Customer*custArray= (struct Customer*)malloc(accNums * sizeof(struct Customer));
 
     do{
-    printf("Welcome to the Banking System\n");
-    printf("Are you a 1.Customer, 2.Employee ,0 exit.? (Enter 1, 2 or 0): ");
+    printf("*********************************  Welcome to the Banking System  *********************************\n");
+    printf("Are you a \n1.Customer \n2.Employee \nEnter your choice(1 or 2 or 0 to exit): ");
     scanf("%d",&userType);
         if(userType == 1) {
             printf("You are a Customer.\n");
