@@ -8,8 +8,6 @@
 #include "../subEmployeeFuncs/e3_removeAcc.h"
 #include "../subEmployeeFuncs/e4_solveDispute.h"
 
-
-
 void features(struct Customer* customer, struct Customer* custArray){
     int choice;
     do{
@@ -20,7 +18,6 @@ void features(struct Customer* customer, struct Customer* custArray){
     printf("4. remove customer\n");
     printf("5. Solve a dispute\n");
     printf("6. Exit\n");
-
 
     printf("Enter your choice: ");
     scanf("%d", &choice);

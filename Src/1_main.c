@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include <stdlib.h>
 #include "c1_CustomerFunc.h"
@@ -17,14 +16,14 @@ int main() {
         if(userType == 1) {
             printf("You are a Customer.\n");
             CustomerFunc(custArray);
-        } else if (userType == 2) {
+        }else if (userType == 2) {
             printf("\nYou are an Employee.\n");
             if(Admin()){
-            EmployeeFunc(custArray);
+                EmployeeFunc(custArray);
             }else{
                 printf("Wrong ID or Password\n");
             }
-        } else if(userType !=0){
+        }else if(userType !=0){
             printf("Invalid input. Please enter 1,2 or 0.\n");
         }
     }while(userType);

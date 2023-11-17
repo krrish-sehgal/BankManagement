@@ -9,12 +9,10 @@
 #include "../subCustomerFuncs/c9_isResolved.h"
 #include "../subCustomerFuncs/c1_features.h"
 
-
 #define accNums 100
 
 int accNumsIdx =0;
 int accNo ;
-
 
 void CustomerFunc(struct Customer*custArray){
     int choice1, flag = 1;
