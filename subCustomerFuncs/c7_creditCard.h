@@ -3,7 +3,6 @@
 #include "c7_creditCardIssue.h"
 #include "c7_creditCardDetails.h"
 
-
 #include <stdio.h>
 
 void CreditCard(struct Customer * customer){

@@ -3,8 +3,6 @@
 #include "../CustomerStructs/s1_Customer.h"
 #include "c7_payBill.h"
 
-
-
 void CreditCardDetails(struct Customer * customer){
     int choice;
     do {

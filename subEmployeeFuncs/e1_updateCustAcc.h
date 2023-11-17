@@ -3,7 +3,6 @@
 #include "../subUpdateCustInfo/e1_1_type.h"
 #include "../subUpdateCustInfo/e1_2_Status.h"
 #include "../subUpdateCustInfo/e1_3_InterestRate.h"
-#include "../subUpdateCustInfo/e1_4_TransacHist.h"
 #include "../subUpdateCustInfo/e1_5_ContactInfo.h"
 #include "../subUpdateCustInfo/e1_6_Dob.h"
 #include "../subUpdateCustInfo/e1_7_name.h"
@@ -13,7 +12,6 @@
 #include <string.h>
 #include "stdio.h"
 
-
 void updateCustAccInfo(struct Customer* customer){
     printf("Change Info for Customer Account: %d",customer->accDet.accountNumber);
     int choice ;
@@ -22,13 +20,12 @@ void updateCustAccInfo(struct Customer* customer){
         printf("2.Change the account Type\n");
         printf("3.Change the account Status\n");
         printf("4.Update the account interestRate\n");
-        printf("5.Display or update the account  transaction history\n");
-        printf("6.Change the account ContactInfo/address\n");
-        printf("7.Change the dateOfBirth\n");
-        printf("8.Change the account Account owner's name\n");
-        printf("9.Change the account govtID details\n");
-        printf("10.Change the account minimum Balance\n");
-        printf("11.To exit\n");
+        printf("5.Change the account ContactInfo/address\n");
+        printf("6.Change the dateOfBirth\n");
+        printf("7.Change the account Account owner's name\n");
+        printf("8.Change the account govtID details\n");
+        printf("9.Change the account minimum Balance\n");
+        printf("10.To exit\n");
 
         scanf("%d",&choice);
 
@@ -48,25 +45,23 @@ void updateCustAccInfo(struct Customer* customer){
                 changeInterestRate(customer);
                 break;
             case 5:
-                updateTransac(customer);
-            case 6:
                 ContactInfo(customer);
                 break;
-            case 7:
+            case 6:
                 DateOfBirth(customer);
                 break;
-            case 8:
+            case 7:
                 ownersName(customer);
                 break;
-            case 9:
+            case 8:
                 updateGovtId(customer);
                 break;
-            case 10:
+            case 9:
                 minbalance(customer);
                 break;
             default:
                 printf("Invalid choice\n");
         }
-    }while(choice!=11);
+    }while(choice!=10);
 
 }

@@ -10,7 +10,6 @@
 #include "../subCustomerFuncs/c9_isResolved.h"
 #include "../subCustomerFuncs/c1_features.h"
 
-
 void custFeatures(struct Customer*customer){
     int choice2;
     double amt; 
@@ -25,7 +24,6 @@ do {
                 printf("6. Raise a Dispute\n");
                 printf("7. Check if Query Resolved?\n");
                 
-
                 printf("Enter your choice: ");
                 scanf("%d", &choice2);
 

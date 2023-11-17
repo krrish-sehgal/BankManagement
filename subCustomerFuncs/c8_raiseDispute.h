@@ -1,6 +1,5 @@
 #pragma once
 #include "../CustomerStructs/s1_Customer.h"
-// #include "c9_isResolved.h"
 #include "string.h"
 #include <stdio.h>
 

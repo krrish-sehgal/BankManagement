@@ -4,19 +4,25 @@
 #include "Time.h"
 #include "../CustomerStructs/s1_Customer.h"
 
-
 void withdraw(struct Customer *customer , double amt){
     int choice;
     do{
-    printf("1.Internet banking\n2.Credit card\n3.Exit");
+    printf("1.Internet banking\n2.Credit card\n3.Exit\nEnter your choice : ");
     scanf("%d",&choice);
     if(choice==1){
-        customer->accDet.accountBalance -= amt;
-        printf("%lf is debited from account %d\n", amt , customer->accDet.accountNumber);
-        customer->accDet.transHis.transactionDate[customer->accDet.transHis.custIdx] = getCurrentDate();
-        customer->accDet.transHis.transactionTime[customer->accDet.transHis.custIdx] = getCurrentTime();
-        customer->accDet.transHis.transactions[customer->accDet.transHis.custIdx++] = -amt;
-        printf("Your current balance is = %f\n",customer->accDet.accountBalance);
+
+        if(customer->accDet.minimumBalance < customer->accDet.accountBalance-amt){
+            customer->accDet.accountBalance -= amt;
+            printf("%lf is debited from account %d\n", amt , customer->accDet.accountNumber);
+            customer->accDet.transHis.transactionDate[customer->accDet.transHis.custIdx] = getCurrentDate();
+            customer->accDet.transHis.transactionTime[customer->accDet.transHis.custIdx] = getCurrentTime();
+            customer->accDet.transHis.transactions[customer->accDet.transHis.custIdx++] = -amt;
+            printf("Your current balance is = %f\n",customer->accDet.accountBalance);
+        }else{
+            printf("Not enough balance in your account\n");
+            printf("Minimum Balance %f",customer->accDet.minimumBalance);
+            printf("Current Balance %f",customer->accDet.accountBalance);
+        }
         break;
     }else if(choice ==2){
         if(customer->creditCard.isActive){

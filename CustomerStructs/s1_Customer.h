@@ -46,5 +46,4 @@ struct Customer{
 
     int query;
     int resolved;
-
 };

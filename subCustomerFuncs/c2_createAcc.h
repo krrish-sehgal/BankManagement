@@ -66,9 +66,9 @@ void createAccount(struct Customer *customer ,struct Customer * custArray,int ac
 
     printf("Phone: ");
     scanf("%s", customer->contactInfo);
-    // fgets(customer->contactInfo,sizeof(customer->contactInfo),stdin);
+    // fgets(customer->contactInfo,sizeof(customer->contactInfo),stdin)
 
-    printf("Citizenship Status: ");
+    printf("Citizenship India or NRI : ");
     scanf(" %s", customer->citizenshipStatus);
     
     printf("Government-issued ID (e.g., Driver's License): ");
@@ -76,13 +76,12 @@ void createAccount(struct Customer *customer ,struct Customer * custArray,int ac
 
     printf("account is created\n\n");
 
+    printf("x-------x--------x\nyour account number is generated and is %d\nx-------x--------x\n" , customer->accDet.accountNumber);
     // fgets(customer->email,sizeof(customer->email),stdin);
 
     //for account details
     customer->accDet.accountNumber = randomAccNo();
-    // customer->accDet.accountNumber = 482733411;
-
-    printf("x-------x--------x\nyour account number is generated and is %d\nx-------x--------x\n" , customer->accDet.accountNumber);
+    customer->accDet.minimumBalance = 1000;
     customer->accDet.accountBalance = 0;
     customer->accDet.accountStatus = 1;
     customer->accDet.accountTitle =customer->fullName;
