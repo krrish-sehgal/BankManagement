@@ -76,11 +76,11 @@ void createAccount(struct Customer *customer ,struct Customer * custArray,int ac
 
     printf("account is created\n\n");
 
-    printf("x-------x--------x\nyour account number is generated and is %d\nx-------x--------x\n" , customer->accDet.accountNumber);
     // fgets(customer->email,sizeof(customer->email),stdin);
 
     //for account details
     customer->accDet.accountNumber = randomAccNo();
+    printf("x-------x--------x\nyour account number is generated and is %d\nx-------x--------x\n" , customer->accDet.accountNumber);
     customer->accDet.minimumBalance = 1000;
     customer->accDet.accountBalance = 0;
     customer->accDet.accountStatus = 1;

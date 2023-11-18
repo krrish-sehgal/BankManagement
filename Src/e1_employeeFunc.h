@@ -37,7 +37,7 @@ void features(struct Customer* customer, struct Customer* custArray){
             return;
         case 5:
             if(customer->resolved!=1){
-                solveDispute(customer);           //use file handling
+                solveDispute(customer);            
             }else{
                 printf("\nAll queries resolved\n");
             }

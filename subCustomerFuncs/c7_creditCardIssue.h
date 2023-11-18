@@ -6,16 +6,16 @@
 #include <time.h>
 
 char* generateRandomCreditCardNumber() {
-    static char cardNumber[20];  // 16 digits + 3 spaces + null terminator
+    static char cardNumber[20];  // 13 digits + 3 spaces + null terminator
 
-    // Seed the random number generator with the current time
-    srand(time(NULL));
+    // Seed the random number generator algo with the current time(a unique value as it is seconds that chanes all the time)
+    srand(time(NULL));      
 
     for (int i = 0; i < 16; i++) {
         if (i > 0 && i % 4 == 0) {
-            cardNumber[i] = ' ';  // Insert a space at every 4 digits
+            cardNumber[i] = ' ';  // Insert a space at 4 digit and the after 3 3 digits.
         } else {
-            cardNumber[i] = '0' + rand() % 10;  // Generate random digits
+            cardNumber[i] = '0' + rand() % 10;  // Generate random single digits and then getting their ascii to keep in string by adding "0"
         }
     }
 
@@ -25,10 +25,10 @@ char* generateRandomCreditCardNumber() {
 }
 char* generateExpirationDates() {
     // Get the current time
-    time_t currentTime = time(NULL);
+    time_t currentTime = time(NULL); // or time(&currentTime)
 
     // Add 9 years (in seconds) to the current time
-    time_t futureTime = currentTime + (9 * 365 * 24 * 60 * 60);
+    time_t futureTime = currentTime + (9 * 365 * 24 * 60 * 60);     //since thorugh time function we get current time in seconds.
 
     // Convert the future time to a struct tm
     struct tm *futureDate = localtime(&futureTime);
@@ -43,8 +43,10 @@ char* generateExpirationDates() {
 }
 char* generateCvv() {
     char* numberStr = (char*)malloc(4);  // Room for 3 digits + null terminator
+
     if (numberStr != NULL) {
         int randomNum = 100 + rand() % 900;  // Generate a random number between 100 and 999
+//or    int number = (rand() % (upper-lower+1 )) + lower ;
         sprintf(numberStr, "%d", randomNum);
     }
     return numberStr;

@@ -4,9 +4,9 @@
 
 void displayAccInfo(struct Customer * customer){
 
-    printf("Account Title: %s\n", customer->accDet.accountTitle);
+    printf("\nAccount Title: %s\n", customer->accDet.accountTitle);
     printf("Account Type : %s\n",customer->accDet.accountType);
-    printf("\nAccount Number: %d\n",customer->accDet.accountNumber);
+    printf("Account Number: %d\n",customer->accDet.accountNumber);
     printf("Account Balance: %.2f\n", customer->accDet.accountBalance);
     printf("Account minimum balance: %f\n",customer->accDet.minimumBalance);
     printf("Account Status: %s\n", customer->accDet.accountStatus ? "Active" : "Inactive");

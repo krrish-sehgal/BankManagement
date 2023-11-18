@@ -12,5 +12,4 @@ void transactionHistory(struct Customer*customer){
         printf("| %-10s | %-8s | Rs%10.2f|\n", customer->accDet.transHis.transactionDate[i], customer->accDet.transHis.transactionTime[i], customer->accDet.transHis.transactions[i]);
         printf("+------------+----------+-------------+\n");
     }
-    //11f
-} 
+}
