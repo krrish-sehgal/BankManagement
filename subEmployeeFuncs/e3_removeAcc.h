@@ -13,4 +13,3 @@ void removeAccount(struct Customer*customer , struct Customer* custArray){
         }
     }
 }
-

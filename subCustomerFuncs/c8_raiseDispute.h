@@ -15,5 +15,4 @@ void raiseDispute(struct Customer*customer){
 
     fclose(filePtr);
     customer->query =1;
-
 }
