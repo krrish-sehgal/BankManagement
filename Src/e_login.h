@@ -2,7 +2,7 @@
 #include<stdio.h>
 
 int Admin(){
-    int secKey = 9012912;
+    int secKey = 981067;
     int inKey;
     printf("Enter the security code given by the bank ");
     scanf("%d",&inKey);

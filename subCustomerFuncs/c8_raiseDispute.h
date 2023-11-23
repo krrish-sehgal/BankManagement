@@ -5,7 +5,7 @@
 
 void raiseDispute(struct Customer*customer){
     char dispute[1000];
-    printf("Enter your Query");
+    printf("Enter your Query : ");
     // gets(dispute);
     scanf("%s",dispute);
     FILE* filePtr = fopen("../subCustomerFuncs/Disputes.txt","a+");

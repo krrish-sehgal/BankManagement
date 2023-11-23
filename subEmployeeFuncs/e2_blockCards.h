@@ -1,8 +1,6 @@
-
 #pragma once
 #include <stdio.h>
 #include "../CustomerStructs/s1_Customer.h"
-
 
 void BlockCards(struct Customer* customer){
     int choice;

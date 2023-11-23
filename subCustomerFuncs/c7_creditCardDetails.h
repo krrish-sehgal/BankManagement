@@ -62,6 +62,6 @@ void CreditCardDetails(struct Customer * customer){
             default:
                 printf("Invalid choice. Please try again.\n");
         }
-    } while (choice != 9);
+    } while (choice != 10);
 
 }

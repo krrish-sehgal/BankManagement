@@ -64,6 +64,8 @@ void EmployeeFunc(struct Customer* custArray) {
                 for(int i=0;i<=accNumsIdx;i++){
                     if(custArray[i].accDet.accountNumber==accNo){
                         features(&custArray[i] , custArray);
+                        check =1;
+                        break;
                     }else {
                         check =0;
                     }
