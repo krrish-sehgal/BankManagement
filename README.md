@@ -11,6 +11,6 @@ Few pointers to avoid any difficulty while running the program.
 (ii)  Resolve it through employee interface.
 (iii) Check the solution of the query in customer interface.
 
-3. Customer can only ask one query thorughout the program. 
+3. One Customer Account can only ask one query thorughout the program. 
 
 Just go the "1_main.c" in "Src" folder and hit run and you'll be set to go :)
